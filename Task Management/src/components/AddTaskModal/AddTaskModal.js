@@ -1,4 +1,3 @@
-// components/AddTaskModal.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +5,7 @@ const AddTaskModal = ({ onAddTask }) => {
     const [taskName, setTaskName] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
     const [priority, setPriority] = useState('low');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -13,11 +13,29 @@ const AddTaskModal = ({ onAddTask }) => {
         setTaskName('');
         setTaskDescription('');
         setPriority('low');
+        setSuccessMessage('Task created successfully!');
+
+        setTimeout(() => {
+            setSuccessMessage('');
+        }, 3000);
     };
 
     return (
         <div>
             <h2>Add Task</h2>
+            {successMessage && (
+                <div
+                    style={{
+                        color: 'green',
+                        border: '1px solid black',
+                        padding: '10px',
+                        margin: '10px 0',
+                        borderRadius: '4px',
+                    }}
+                >
+                    {successMessage}
+                </div>
+            )}
             <form onSubmit={handleFormSubmit}>
                 <label>
                     Task Name:
