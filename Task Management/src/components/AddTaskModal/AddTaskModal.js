@@ -6,18 +6,19 @@ const AddTaskModal = ({ onAddTask }) => {
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [priority, setPriority] = useState("low");
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onAddTask({
-      name: taskName,
-      description: taskDescription,
-      priority,
-      completed: false,
-    });
-    setTaskName("");
-    setTaskDescription("");
-    setPriority("low");
+    onAddTask({ name: taskName, description: taskDescription, priority, completed: false });
+    setTaskName('');
+    setTaskDescription('');
+    setPriority('low');
+    setSuccessMessage('Task created successfully!');
+
+    setTimeout(() => {
+      setSuccessMessage('');
+    }, 3000);
   };
 
   return (
@@ -25,6 +26,20 @@ const AddTaskModal = ({ onAddTask }) => {
       <hr></hr>
       <h2>Add Task</h2>
       <hr></hr>
+
+      {successMessage && (
+        <div
+          style={{
+            color: 'green',
+            border: '1px solid black',
+            padding: '10px',
+            margin: '10px 0',
+            borderRadius: '4px',
+          }}
+        >
+          {successMessage}
+        </div>
+      )}
       <form onSubmit={handleFormSubmit} className="container">
         <div className="mb-3">
           <input
@@ -47,7 +62,7 @@ const AddTaskModal = ({ onAddTask }) => {
 
         <div className="row m-auto p-2">
           <div className="col-auto m-auto">
-            <label style={{ fontFamily: "cursive", fontWeight: "bold",fontSize:'1.2rem' }}>
+            <label style={{ fontFamily: "cursive", fontWeight: "bold", fontSize: '1.2rem' }}>
               Priority :
             </label>
           </div>
