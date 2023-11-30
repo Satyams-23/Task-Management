@@ -1,11 +1,10 @@
-// components/EditTaskModal.js
 import React, { useState, useEffect } from "react";
 
 const EditTaskModal = ({ task, onEditTask, onClose }) => {
   const [editedTask, setEditedTask] = useState({
-    name: "",
-    description: "",
-    priority: "low",
+    name: task.name,
+    description: task.description,
+    priority: task.priority,
   });
 
   useEffect(() => {
@@ -49,6 +48,8 @@ const EditTaskModal = ({ task, onEditTask, onClose }) => {
               <input
                 class="form-control form-control-lg"
                 type="text"
+                name="name"
+
                 value={editedTask.name}
                 onChange={handleInputChange}
                 placeholder=" Task Name:"
@@ -57,12 +58,14 @@ const EditTaskModal = ({ task, onEditTask, onClose }) => {
           </div>
           <div className="form-floating m-auto">
             <textarea
+              name="description"
+
               class="form-control"
               id="floatingTextarea"
               value={editedTask.description}
               onChange={handleInputChange}
             ></textarea>
-            <label for="floatingTextarea">discriptions</label>
+            <label for="floatingTextarea">Discriptions</label>
           </div>
 
           <div className="row m-auto p-2">
@@ -79,6 +82,8 @@ const EditTaskModal = ({ task, onEditTask, onClose }) => {
             </div>
             <div className="col">
               <select
+                name="priority"
+
                 class="form-select"
                 placeholder="Priority"
                 value={editedTask.priority}
