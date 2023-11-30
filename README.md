@@ -76,6 +76,7 @@ npm test
 
 Feel free to contribute to the project by opening issues or submitting pull requests. Your feedback is valuable!
 
+![image](https://github.com/Satyams-23/Task-Management/assets/138864100/43357a88-127d-4665-957f-90b842a1d8b0)
 
 
 
