@@ -14,6 +14,10 @@ const TaskList = ({ tasks, onToggle, onDelete, onEditTask }) => {
         Task List
       </h1>
       <hr></hr>
+   <h2 className="" style={{ fontFamily: "cursive", fontWeight: "bold" }}>
+I am currently in the midst of my third-year semester exams, but despite having a tight schedule, I made time to complete this assignment. Due to my exam schedule, I may not have produced the best framework for the assignment      </h2>
+                <hr></hr>
+
       <Link to="/add">
         <button className="btn btn-outline-primary m-2">Add Task</button>
       </Link>
